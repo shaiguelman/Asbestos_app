@@ -97,7 +97,7 @@ class EstimatorFragment: Fragment() {
             }
         })
 
-        binding.goBackBtn.setOnClickListener {
+        binding.mainMenuBtn.setOnClickListener {
             findNavController().navigate(EstimatorFragmentDirections
                 .actionEstimatorFragmentToMenuPage())
         }

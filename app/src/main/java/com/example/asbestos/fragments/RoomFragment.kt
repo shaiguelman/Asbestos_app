@@ -44,7 +44,12 @@ class RoomFragment: Fragment() {
 
         val binding = FragmentRoomBinding.inflate(inflater)
         binding.viewModel = viewModel
-        binding.roomTypeText.text = viewModel.room.value?.type ?: "NA"
+
+        viewModel.room.observe(viewLifecycleOwner, Observer {
+            binding.roomTypeText.text = it.type
+        })
+
+
         val spinner = binding.chooseButtonSpinner
         spinner.adapter = ArrayAdapter<String>(
             activity!!, R.layout.support_simple_spinner_dropdown_item, materialTypeStrings

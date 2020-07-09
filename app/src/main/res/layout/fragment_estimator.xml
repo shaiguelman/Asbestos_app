@@ -73,11 +73,11 @@
                 android:text="@string/clear_estimate"/>
 
             <Button
-                android:id="@+id/go_back_btn"
+                android:id="@+id/main_menu_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/TextAppearance.AppCompat.Button"
-                android:text="@string/go_back"/>
+                android:text="@string/main_menu"/>
 
         </LinearLayout>
 

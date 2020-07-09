@@ -25,8 +25,8 @@
             android:id="@+id/action_menuPage_to_contactUs"
             app:destination="@id/contactUs" />
         <action
-            android:id="@+id/action_menuPage_to_estimatorFragment"
-            app:destination="@id/estimatorFragment" />
+            android:id="@+id/action_menuPage_to_chooseEstimatorFragment"
+            app:destination="@id/chooseEstimatorFragment" />
     </fragment>
     <fragment
         android:id="@+id/aboutAsbestos"
@@ -81,5 +81,16 @@
         <argument
             android:name="roomId"
             app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseEstimatorFragment"
+        android:name="com.example.asbestos.fragments.ChooseEstimatorFragment"
+        android:label="ChooseEstimatorFragment" >
+        <action
+            android:id="@+id/action_chooseEstimatorFragment_to_estimatorFragment"
+            app:destination="@id/estimatorFragment" />
+        <action
+            android:id="@+id/action_chooseEstimatorFragment_to_menuPage"
+            app:destination="@id/menuPage" />
     </fragment>
 </navigation>

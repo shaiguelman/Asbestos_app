@@ -31,7 +31,7 @@ class MenuPageFragment : Fragment() {
 
             contact_us_btn.id -> MenuPageFragmentDirections.actionMenuPageToContactUs()
 
-            get_estimate_btn.id -> MenuPageFragmentDirections.actionMenuPageToEstimatorFragment()
+            get_estimate_btn.id -> MenuPageFragmentDirections.actionMenuPageToChooseEstimatorFragment()
 
             else -> throw (Exception("Unexpected button clicked"))
         }

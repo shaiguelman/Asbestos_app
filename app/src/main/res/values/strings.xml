@@ -24,4 +24,6 @@
     <string name="new_estimate">New Estimate</string>
     <string name="logo_description">Logo</string>
     <string name="clear_estimate">Clear Estimate</string>
+    <string name="continue_estimate">Continue Estimate</string>
+    <string name="main_menu">Main Menu</string>
 </resources>
