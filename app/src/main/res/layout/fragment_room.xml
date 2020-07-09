@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.asbestos.viewModels.RoomViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.MaterialComponents.Headline2"
+            android:id="@+id/room_type_text"/>
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.AppCompat.Widget.TextView.SpinnerItem"
+            android:id="@+id/choose_button_spinner"/>
+
+        <LinearLayout
+            android:id="@+id/footage_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <EditText
+                style="@style/TextAppearance.AppCompat.Body2"
+                android:id="@+id/width_text"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:inputType="numberDecimal"
+                android:hint="@string/default_num_value"
+                android:text="@={viewModel.width}"
+                android:autofillHints="0" />
+
+            <TextView
+                style="@style/TextAppearance.AppCompat.Body2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ft_times"/>
+
+            <EditText
+                android:id="@+id/length_text"
+                style="@style/TextAppearance.AppCompat.Body2"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:inputType="numberDecimal"
+                android:hint="@string/default_num_value"
+                android:text="@={viewModel.length}"
+                android:autofillHints="0" />
+
+            <TextView
+                style="@style/TextAppearance.AppCompat.Body2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ft_equals"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextAppearance.AppCompat.Body2"
+                android:text="@{viewModel.area.intValue()}"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/add_item_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.AppCompat.Button"
+            android:gravity="center"
+            android:text="@string/add_item"/>
+
+        <GridView
+            android:id="@+id/room_item_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:numColumns="3"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.AppCompat.Button"
+            android:text="@string/add_room"
+            android:id="@+id/add_room_btn"/>
+
+    </LinearLayout>
+</layout>

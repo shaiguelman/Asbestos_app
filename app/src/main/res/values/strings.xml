@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Asbestos</string>
+    <string name="welcome">Welcome!</string>
+    <string name="enter">Enter</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="about_asbestos">About asbestos</string>
+    <string name="get_estimate">Get Estimate</string>
+    <string name="contact_us">Contact us</string>
+    <string name="menu_headline">Menu</string>
+    <string name="estimator_calculator">Estimator Calculator</string>
+    <string name="about_asbestos_body">Filler text</string>
+    <string name="choose_room">Room type</string>
+    <string name="default_num_value">0</string>
+    <string name="ft_equals">ft =</string>
+    <string name="ft_times">ft x</string>
+    <string name="clear">clear</string>
+    <string name="add_item">Add item</string>
+    <string name="estimate_btn">Estimate</string>
+    <string name="result_contact"><![CDATA[For a more accurate quote, contact JJ&S Asbestos Removal at 619–204–3524]]></string>
+    <string name="add_room">Add room</string>
+    <string name="add_room_items">Add room items</string>
+    <string name="go_back">Go Back</string>
+    <string name="new_estimate">New Estimate</string>
+    <string name="logo_description">Logo</string>
+    <string name="clear_estimate">Clear Estimate</string>
+</resources>

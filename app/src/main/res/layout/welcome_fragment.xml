@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.asbestos.MainActivity">
+
+        <ImageView
+            android:id="@+id/asbestos_logo"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            app:srcCompat="@android:drawable/ic_menu_gallery"
+            android:src="@drawable/jj_and_s_logo"
+            android:contentDescription="@string/logo_description"/>
+
+        <TextView
+            android:id="@+id/welcome_text"
+            style="@style/TextAppearance.MaterialComponents.Headline2"
+            android:layout_width="match_parent"
+            android:layout_height="360dp"
+            android:gravity="center"
+            android:text="@string/welcome" />
+
+        <Button
+            android:id="@+id/enter_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/enter" />
+    </LinearLayout>
+</layout>

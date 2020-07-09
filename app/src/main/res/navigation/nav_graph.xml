@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/welcomeFragment">
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="layout.WelcomeFragment"
+        android:label="welcomeFragment"
+        tools:layout="@layout/welcome_fragment">
+        <action
+            android:id="@+id/action_welcomeFragment_to_menuPage"
+            app:destination="@id/menuPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuPage"
+        android:name="com.example.asbestos.fragments.MenuPageFragment"
+        android:label="MenuPage" >
+        <action
+            android:id="@+id/action_menuPage_to_aboutAsbestos"
+            app:destination="@id/aboutAsbestos" />
+        <action
+            android:id="@+id/action_menuPage_to_contactUs"
+            app:destination="@id/contactUs" />
+        <action
+            android:id="@+id/action_menuPage_to_estimatorFragment"
+            app:destination="@id/estimatorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutAsbestos"
+        android:name="com.example.asbestos.fragments.AboutAsbestosFragment"
+        android:label="AboutAsbestos" />
+    <fragment
+        android:id="@+id/contactUs"
+        android:name="com.example.asbestos.fragments.ContactUsFragment"
+        android:label="ContactUs" />
+    <fragment
+        android:id="@+id/estimatorFragment"
+        android:name="com.example.asbestos.fragments.EstimatorFragment"
+        android:label="EstimatorFragment" >
+        <action
+            android:id="@+id/action_estimatorFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+        <action
+            android:id="@+id/action_estimatorFragment_to_roomFragment"
+            app:destination="@id/roomFragment" />
+        <argument
+            android:name="new_estimate"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <action
+            android:id="@+id/action_estimatorFragment_to_menuPage"
+            app:destination="@id/menuPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.example.asbestos.fragments.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" >
+        <argument
+            android:name="minValue"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="maxValue"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/action_resultFragment_to_estimatorFragment"
+            app:destination="@id/estimatorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/roomFragment"
+        android:name="com.example.asbestos.fragments.RoomFragment"
+        android:label="RoomFragment" >
+        <action
+            android:id="@+id/action_roomFragment_to_estimatorFragment"
+            app:destination="@id/estimatorFragment" />
+        <argument
+            android:name="roomId"
+            app:argType="long" />
+    </fragment>
+</navigation>

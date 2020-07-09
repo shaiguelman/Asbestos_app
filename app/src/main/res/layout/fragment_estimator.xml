@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.asbestos.viewModels.EstimatorViewModel" />
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.asbestos.MainActivity">
+
+        <TextView
+            style="@style/TextAppearance.MaterialComponents.Headline4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/estimator_calculator"
+            android:id="@+id/estimator_headline"/>
+
+        <TextView
+            android:id="@+id/choose_item_text"
+            style="@style/TextAppearance.MaterialComponents.Headline4"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="@string/choose_room"
+            android:gravity="center" />
+        
+        <Spinner
+            android:id="@+id/choose_room_spinner"
+            style="@style/TextAppearance.AppCompat.Widget.DropDownItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:prompt="@id/choose_item_text"/>
+
+        <Button
+            android:id="@+id/add_room_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_room_items"/>
+
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.AppCompat.Button"
+            android:text="@string/estimate_btn"
+            android:id="@+id/calculate_btn"
+            android:gravity="center"/>
+
+        <GridView
+            android:id="@+id/rooms_list"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:numColumns="3"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/clear_estimator_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextAppearance.AppCompat.Button"
+                android:text="@string/clear_estimate"/>
+
+            <Button
+                android:id="@+id/go_back_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/TextAppearance.AppCompat.Button"
+                android:text="@string/go_back"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

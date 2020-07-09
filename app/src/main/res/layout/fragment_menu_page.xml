@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.asbestos.MainActivity">
+
+        <TextView
+            style="@style/MenuOptions"
+            android:text="@string/menu_headline" />
+
+        <Button
+            android:id="@+id/get_estimate_btn"
+            style="@style/MenuOptions"
+            android:text="@string/get_estimate"/>
+
+        <Button
+            android:id="@+id/about_btn"
+            style="@style/MenuOptions"
+            android:text="@string/about_asbestos" />
+
+        <Button
+            android:id="@+id/contact_us_btn"
+            style="@style/MenuOptions"
+            android:text="@string/contact_us"/>
+    </LinearLayout>
+
+</layout>
