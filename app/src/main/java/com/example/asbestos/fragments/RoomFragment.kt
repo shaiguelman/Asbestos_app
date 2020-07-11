@@ -14,7 +14,6 @@ import com.example.asbestos.R
 import com.example.asbestos.database.EstimatorDatabase
 import com.example.asbestos.database.EstimatorItem
 import com.example.asbestos.databinding.FragmentRoomBinding
-import com.example.asbestos.estimatorTools.EstimatorClickListener
 import com.example.asbestos.estimatorTools.EstimatorListAdapter
 import com.example.asbestos.viewModels.RoomViewModel
 import com.example.asbestos.viewModels.RoomViewModelFactory
@@ -60,7 +59,7 @@ class RoomFragment: Fragment() {
         var items = viewModel.items.value ?: mutableListOf()
         val listAdapter = EstimatorListAdapter(context!!,
             items,
-            EstimatorClickListener {item ->
+            EstimatorListAdapter.EstimatorClickListener { item ->
                 viewModel.removeItem(item)
             })
 

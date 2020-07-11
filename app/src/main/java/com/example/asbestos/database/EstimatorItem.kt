@@ -24,24 +24,3 @@ data class EstimatorItem(
         val materialTypes = listOf<String>("Tile", "Drywall", "Insulation", "Popcorn Ceiling")
     }
 }
-
-enum class EstimatorItemType() {
-
-    TILE {
-        override val price = 5.0
-    },
-
-    DRYWALL {
-        override val price = 1.84
-    },
-
-    INSULATION {
-        override val price = 0.26
-    },
-
-    POPCORN_CEILING {
-        override val price = 5.0
-    };
-
-    abstract val price: Double
-}

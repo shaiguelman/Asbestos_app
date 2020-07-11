@@ -26,8 +26,8 @@ class EstimatorListAdapter(context: Context,
 
         return rowView.root
     }
-}
 
-class EstimatorClickListener(val clickListener: (EstimatorItem) -> Unit) {
-    fun onClick(item: EstimatorItem) = clickListener(item)
+    class EstimatorClickListener(val clickListener: (EstimatorItem) -> Unit) {
+        fun onClick(item: EstimatorItem) = clickListener(item)
+    }
 }

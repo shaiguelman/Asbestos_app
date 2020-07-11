@@ -16,7 +16,8 @@ import com.example.asbestos.viewModels.EstimatorViewModel
 class RoomItemListAdapter(private val context: Context,
                           private var dataSource: List<Room>?,
                           private val viewModel: EstimatorViewModel,
-                          private val lifecycleOwner: LifecycleOwner): BaseAdapter() {
+                          private val lifecycleOwner: LifecycleOwner,
+                          private val clickListener: RoomClickListener): BaseAdapter() {
 
     private val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
@@ -32,6 +33,10 @@ class RoomItemListAdapter(private val context: Context,
 
         rowView.roomItemSublist.adapter = subListAdapter
         rowView.estimatorRoomType.text = item.type
+
+        rowView.editRoomBtn.setOnClickListener {
+            clickListener.onClick(item)
+        }
 
         return rowView.root
     }
@@ -67,5 +72,9 @@ class RoomItemListAdapter(private val context: Context,
 
             return rowView.root
         }
+    }
+
+    class RoomClickListener(val clickListener: (Room) -> Unit) {
+        fun onClick(room: Room) = clickListener(room)
     }
 }

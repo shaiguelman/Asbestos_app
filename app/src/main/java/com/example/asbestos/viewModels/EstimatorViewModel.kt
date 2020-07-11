@@ -1,21 +1,25 @@
 package com.example.asbestos.viewModels
 
-import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.asbestos.database.*
+import com.example.asbestos.database.EstimatorDao
+import com.example.asbestos.database.EstimatorItem
+import com.example.asbestos.database.Room
+import com.example.asbestos.database.RoomType
 import kotlinx.coroutines.*
 import kotlin.math.ceil
 import kotlin.math.roundToInt
 
-private const val ERROR_COEF = .2
+private const val ERROR_COEF = .1
 private const val COST_OF_AIR_SCRUBBER = 100
 private const val ROOMS_PER_AIR_SCRUBBER = 3.0
+private const val DISPOSAL = 500
+private const val VARIABLE_COSTS = .075
+private const val MINIMUM_COST = 1500
 
 class EstimatorViewModel(
-    val dao: EstimatorDao,
-    val application: Application): ViewModel() {
+    private val dao: EstimatorDao): ViewModel() {
 
     var rooms: LiveData<List<Room>> = dao.getRooms()
 
@@ -85,7 +89,15 @@ class EstimatorViewModel(
     fun calcFinalPrice(tot: Int) {
         val roomCount = rooms.value!!.size
 
-        totPrice = (tot * (1.0 + .1 * roomCount) + COST_OF_AIR_SCRUBBER * ceil(roomCount / ROOMS_PER_AIR_SCRUBBER)).roundToInt()
+        totPrice = ((1 + .1 * roomCount + VARIABLE_COSTS) * tot
+                + (COST_OF_AIR_SCRUBBER
+                * ceil(roomCount / ROOMS_PER_AIR_SCRUBBER)).roundToInt()
+                + DISPOSAL).roundToInt()
+
+        if (totPrice < MINIMUM_COST) {
+            //.1 factor helps randomize the value.
+            totPrice = (MINIMUM_COST - 100 + .1 * totPrice).roundToInt()
+        }
     }
 
     val minValue: Int
@@ -100,15 +112,17 @@ class EstimatorViewModel(
     }
 
     private fun itemPrice(item: EstimatorItem): Double {
-        val price: Double = when (EstimatorItemType.valueOf(item.itemType.toUpperCase())) {
+        val price: Double = when (item.itemType) {
 
-            EstimatorItemType.TILE -> 5.0
+            "Tile" -> 5.0
 
-            EstimatorItemType.DRYWALL -> 1.84
+            "Drywall" -> 1.84
 
-            EstimatorItemType.INSULATION -> .26
+            "Insulation" -> .26
 
-            EstimatorItemType.POPCORN_CEILING -> 5.0
+            "Popcorn Ceiling" -> 7.0
+
+            else -> throw Exception("Invalid item type")
         }
 
         return price * item.quantity

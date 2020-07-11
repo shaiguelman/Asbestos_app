@@ -5,6 +5,13 @@
         android:orientation="vertical" android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <Button
+            android:id="@+id/edit_room_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:text="@string/edit_room"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

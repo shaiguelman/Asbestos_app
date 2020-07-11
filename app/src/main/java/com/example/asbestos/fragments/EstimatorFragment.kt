@@ -29,10 +29,9 @@ class EstimatorFragment: Fragment() {
     ): View? {
 
         val dao = EstimatorDatabase.getInstance(context!!).dao()
-        val application = requireNotNull(this.activity).application
         val binding = FragmentEstimatorBinding.inflate(inflater)
 
-        val viewModelFactory = EstimatorViewModelFactory(dao, application)
+        val viewModelFactory = EstimatorViewModelFactory(dao)
         val viewModel = ViewModelProviders.of(
             this, viewModelFactory
         ).get(EstimatorViewModel::class.java)
@@ -57,7 +56,18 @@ class EstimatorFragment: Fragment() {
 
         binding.ftSquared.text = Html.fromHtml(" ft<sup>2</sup>")*/
 
-        val listAdapter = RoomItemListAdapter(this.context!!, viewModel.rooms.value, viewModel, viewLifecycleOwner)
+        val listAdapterClickListener = RoomItemListAdapter.RoomClickListener {
+            findNavController().navigate(
+                EstimatorFragmentDirections.
+                actionEstimatorFragmentToRoomFragment(it.id)
+            )
+        }
+
+        val listAdapter = RoomItemListAdapter(this.context!!,
+            viewModel.rooms.value,
+            viewModel,
+            viewLifecycleOwner,
+            listAdapterClickListener)
 
         viewModel.rooms.observe(viewLifecycleOwner, Observer {
             listAdapter.updateList(it)

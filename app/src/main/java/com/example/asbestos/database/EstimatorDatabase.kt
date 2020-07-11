@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.RoomDatabase
 
-@Database(entities = [Room::class, EstimatorItem::class], version = 10, exportSchema = false)
+@Database(entities = [Room::class, EstimatorItem::class], version = 10, exportSchema = true)
 abstract class EstimatorDatabase: RoomDatabase() {
 
     abstract fun dao(): EstimatorDao
