@@ -1,6 +1,5 @@
 package com.example.asbestos.viewModels
 
-import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,7 +9,6 @@ import kotlinx.coroutines.*
 
 class RoomViewModel(
     val dao: EstimatorDao,
-    val application: Application,
     var roomId: Long
 ): ViewModel() {
 
@@ -30,7 +28,7 @@ class RoomViewModel(
 
     val items = dao.getItems(roomId)
 
-    var numItems = items.value?.size ?: 0
+    private var numItems = items.value?.size ?: 0
 
     val room = dao.getRoom(roomId)
 

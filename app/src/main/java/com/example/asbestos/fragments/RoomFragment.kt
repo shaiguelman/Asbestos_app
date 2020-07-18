@@ -32,12 +32,11 @@ class RoomFragment: Fragment() {
 
         val dataSource = EstimatorDatabase.getInstance(context!!).dao()
 
-        val application = requireNotNull(this.activity).application
         val materialTypeStrings = EstimatorItem.materialTypes
 
         val roomId = args.roomId
 
-        val viewModelFactory = RoomViewModelFactory(dataSource, application, roomId)
+        val viewModelFactory = RoomViewModelFactory(dataSource, roomId)
 
         viewModel = ViewModelProviders.of(
             this, viewModelFactory

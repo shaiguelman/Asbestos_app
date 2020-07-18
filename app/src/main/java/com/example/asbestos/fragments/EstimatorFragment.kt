@@ -88,6 +88,7 @@ class EstimatorFragment: Fragment() {
                         it
                     )
                 )
+                viewModel.doneNavigating()
             }
         })
 

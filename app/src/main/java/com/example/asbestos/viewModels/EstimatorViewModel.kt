@@ -66,6 +66,10 @@ class EstimatorViewModel(
         }
     }
 
+    fun doneNavigating() {
+        roomId.value = 0L
+    }
+
     private val _totPriceLiveData = MutableLiveData<Int?>()
     val totPriceLiveData: LiveData<Int?>
         get() = _totPriceLiveData
