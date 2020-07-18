@@ -8,13 +8,16 @@ import androidx.fragment.app.Fragment
 import com.example.asbestos.databinding.FragmentContactUsBinding
 
 class ContactUsFragment: Fragment() {
+
+    private lateinit var binding: FragmentContactUsBinding
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        val binding = FragmentContactUsBinding.inflate(inflater)
+        binding = FragmentContactUsBinding.inflate(inflater)
         return binding.root
     }
 }

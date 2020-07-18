@@ -14,13 +14,15 @@ import com.example.asbestos.R
 import com.example.asbestos.database.EstimatorDatabase
 import com.example.asbestos.database.EstimatorItem
 import com.example.asbestos.databinding.FragmentRoomBinding
-import com.example.asbestos.estimatorTools.EstimatorListAdapter
+import com.example.asbestos.estimatorTools.EstimatorItemListAdapter
 import com.example.asbestos.viewModels.RoomViewModel
 import com.example.asbestos.viewModels.RoomViewModelFactory
 
 class RoomFragment: Fragment() {
 
-    val args: RoomFragmentArgs by navArgs()
+    private val args: RoomFragmentArgs by navArgs()
+    private lateinit var viewModel: RoomViewModel
+    private lateinit var binding: FragmentRoomBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,7 +39,7 @@ class RoomFragment: Fragment() {
 
         val viewModelFactory = RoomViewModelFactory(dataSource, application, roomId)
 
-        val viewModel = ViewModelProviders.of(
+        viewModel = ViewModelProviders.of(
             this, viewModelFactory
         ).get(RoomViewModel::class.java)
 
@@ -57,9 +59,9 @@ class RoomFragment: Fragment() {
         binding.lifecycleOwner = this
 
         var items = viewModel.items.value ?: mutableListOf()
-        val listAdapter = EstimatorListAdapter(context!!,
+        val listAdapter = EstimatorItemListAdapter(context!!,
             items,
-            EstimatorListAdapter.EstimatorClickListener { item ->
+            EstimatorItemListAdapter.EstimatorClickListener { item ->
                 viewModel.removeItem(item)
             })
 

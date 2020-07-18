@@ -5,7 +5,7 @@ import androidx.databinding.BindingAdapter
 import androidx.databinding.InverseBindingAdapter
 
 @BindingAdapter("android:text")
-fun setFragmentDimensions(textView: TextView, value: Int) {
+fun getFragmentDimensions(textView: TextView, value: Int) {
     textView.text = value.toString()
 }
 

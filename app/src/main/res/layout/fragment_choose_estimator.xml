@@ -5,29 +5,34 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         tools:context=".MainActivity">
+
+        <TextView
+            style="@style/Titles"
+            android:text="@string/choose_estimate_type"/>
 
         <Button
             android:id="@+id/new_estimate_btn"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/new_estimate"
-            style="@style/TextAppearance.AppCompat.Button"/>
+            style="@style/AppButton.Big"/>
 
         <Button
             android:id="@+id/continue_estimate_btn"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/continue_estimate"
-            style="@style/TextAppearance.AppCompat.Button"/>
+            style="@style/AppButton.Big"/>
 
         <Button
             android:id="@+id/main_menu_btn"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/main_menu"
-            style="@style/TextAppearance.AppCompat.Button"/>
+            android:background="@color/salmon"
+            style="@style/AppButton.Big"/>
 
     </LinearLayout>
 

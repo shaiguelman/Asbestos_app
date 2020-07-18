@@ -21,6 +21,8 @@ import com.example.asbestos.viewModels.EstimatorViewModelFactory
 class EstimatorFragment: Fragment() {
 
     private val args: EstimatorFragmentArgs by navArgs()
+    private lateinit var viewModel: EstimatorViewModel
+    private lateinit var binding: FragmentEstimatorBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,11 +31,11 @@ class EstimatorFragment: Fragment() {
     ): View? {
 
         val dao = EstimatorDatabase.getInstance(context!!).dao()
-        val binding = FragmentEstimatorBinding.inflate(inflater)
+        binding = FragmentEstimatorBinding.inflate(inflater)
 
         val viewModelFactory = EstimatorViewModelFactory(dao)
-        val viewModel = ViewModelProviders.of(
-            this, viewModelFactory
+        viewModel = ViewModelProviders.of(
+            activity!!, viewModelFactory
         ).get(EstimatorViewModel::class.java)
 
         binding.viewModel = viewModel

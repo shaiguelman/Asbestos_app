@@ -8,7 +8,7 @@
         android:layout_height="match_parent"
         tools:context="com.example.asbestos.MainActivity">
         <TextView
-            style="@style/TextAppearance.MaterialComponents.Headline4"
+            style="@style/Titles"
             android:text="@string/about_asbestos"/>
         <TextView
             android:layout_width="match_parent"

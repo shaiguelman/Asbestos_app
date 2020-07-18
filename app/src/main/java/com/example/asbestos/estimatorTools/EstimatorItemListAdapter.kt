@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import com.example.asbestos.database.EstimatorItem
 import com.example.asbestos.databinding.RoomListItemBinding
 
-class EstimatorListAdapter(context: Context,
-                           dataSource: List<EstimatorItem>,
-                           private val clickListener: EstimatorClickListener):
-    EstimatorListAdapterAbstract(dataSource) {
+class EstimatorItemListAdapter(context: Context,
+                               dataSource: List<EstimatorItem>,
+                               private val clickListener: EstimatorClickListener):
+    EstimatorItemListAdapterAbstract(dataSource) {
 
     private val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
@@ -28,6 +28,7 @@ class EstimatorListAdapter(context: Context,
     }
 
     class EstimatorClickListener(val clickListener: (EstimatorItem) -> Unit) {
+        //Custom click listener class that takes an estimator item.
         fun onClick(item: EstimatorItem) = clickListener(item)
     }
 }

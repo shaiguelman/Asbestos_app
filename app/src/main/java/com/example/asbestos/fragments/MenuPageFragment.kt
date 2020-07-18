@@ -11,13 +11,15 @@ import kotlinx.android.synthetic.main.fragment_menu_page.*
 
 class MenuPageFragment : Fragment() {
 
+    private lateinit var binding: FragmentMenuPageBinding
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        val binding = FragmentMenuPageBinding.inflate(inflater)
+        binding = FragmentMenuPageBinding.inflate(inflater)
         binding.aboutBtn.setOnClickListener(onClickListener)
         binding.contactUsBtn.setOnClickListener(onClickListener)
         binding.getEstimateBtn.setOnClickListener(onClickListener)

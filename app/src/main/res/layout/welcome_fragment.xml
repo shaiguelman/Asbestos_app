@@ -13,23 +13,24 @@
         <ImageView
             android:id="@+id/asbestos_logo"
             android:layout_width="match_parent"
-            android:layout_height="160dp"
-            app:srcCompat="@android:drawable/ic_menu_gallery"
+            android:layout_height="195dp"
+            android:contentDescription="@string/logo_description"
             android:src="@drawable/jj_and_s_logo"
-            android:contentDescription="@string/logo_description"/>
+            app:srcCompat="@android:drawable/ic_menu_gallery" />
 
         <TextView
             android:id="@+id/welcome_text"
             style="@style/TextAppearance.MaterialComponents.Headline2"
             android:layout_width="match_parent"
-            android:layout_height="360dp"
+            android:layout_height="310dp"
             android:gravity="center"
             android:text="@string/welcome" />
 
         <Button
             android:id="@+id/enter_button"
+            style="@style/AppButton.Big"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:fontFamily="@font/arsenal_bold"
             android:text="@string/enter" />
     </LinearLayout>
 </layout>

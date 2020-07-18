@@ -21,6 +21,8 @@ private const val MINIMUM_COST = 1500
 class EstimatorViewModel(
     private val dao: EstimatorDao): ViewModel() {
 
+    val roomCount = dao.countRoomsLiveData()
+
     var rooms: LiveData<List<Room>> = dao.getRooms()
 
     val roomId = MutableLiveData(0L)
@@ -28,7 +30,6 @@ class EstimatorViewModel(
     private val viewModelJob = Job()
 
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
-
 
     fun clearData() {
         uiScope.launch {
@@ -38,6 +39,7 @@ class EstimatorViewModel(
                     true
                 }
             }
+            //Makes sure data is fully cleared before any further UI actions are taken.
             deferred.await()
         }
     }
@@ -57,7 +59,7 @@ class EstimatorViewModel(
     fun navToNewRoom(itemPosition: Int) {
         uiScope.launch {
             roomId.value = withContext(Dispatchers.IO) {
-                val id = dao.countRooms() + 1
+                val id = dao.countRooms().toLong() + 1
                 insertRoom(id, roomTypes[itemPosition])
                 id
             }

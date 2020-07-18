@@ -76,22 +76,36 @@
             android:id="@+id/add_item_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/TextAppearance.AppCompat.Button"
+            style="@style/AppButton"
             android:gravity="center"
             android:text="@string/add_item"/>
 
-        <GridView
-            android:id="@+id/room_item_list"
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:numColumns="3"/>
+            android:layout_height="match_parent">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/TextAppearance.AppCompat.Button"
-            android:text="@string/add_room"
-            android:id="@+id/add_room_btn"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:paddingBottom="20dp">
+
+                <ListView
+                    android:id="@+id/room_item_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/AppButton"
+                    android:gravity="center"
+                    android:text="@string/add_room"
+                    android:id="@+id/add_room_btn"/>
+
+            </LinearLayout>
+        </ScrollView>
 
     </LinearLayout>
 </layout>

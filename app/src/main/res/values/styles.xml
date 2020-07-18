@@ -1,17 +1,35 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <item name="android:background">@color/white_opaque</item>
+        <item name="android:windowBackground">@color/white_opaque</item>
+        <item name="android:colorBackground">@color/white_opaque</item>
     </style>
 
-    <style name="MenuOptions" parent="TextAppearance.MaterialComponents.Headline4">
+    <style name="MenuOptions" parent="AppButton.Big">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">100dp</item>
         <item name="android:gravity">center</item>
     </style>
+
+    <style name="AppButton" parent="TextAppearance.AppCompat.Widget.Button.Colored">
+        <item name="android:background">@color/green</item>
+        <item name="android:textColor">@color/white_opaque</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="fontFamily">@font/arsenal_bold</item>
+        <item name="android:layout_margin">10dp</item>
+    </style>
+
+    <style name="AppButton.Big">
+        <item name="android:textSize">40sp</item>
+        <item name="android:layout_height">85dp</item>
+    </style>
+
+    <style name="Titles" parent="TextAppearance.MaterialComponents.Headline2">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+    </style>
+
 
 </resources>

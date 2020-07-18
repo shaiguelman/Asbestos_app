@@ -8,6 +8,8 @@
         android:layout_height="match_parent"
         tools:context="com.example.asbestos.MainActivity">
         <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
             style="@style/TextAppearance.MaterialComponents.Headline4"
             android:text="@string/contact_us"/>
     </LinearLayout>

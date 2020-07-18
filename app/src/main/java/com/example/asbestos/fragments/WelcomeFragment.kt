@@ -10,13 +10,15 @@ import com.example.asbestos.databinding.WelcomeFragmentBinding
 
 class WelcomeFragment: Fragment() {
 
+    private lateinit var binding: WelcomeFragmentBinding
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        val binding = WelcomeFragmentBinding.inflate(inflater)
+        binding = WelcomeFragmentBinding.inflate(inflater)
         val enterButton = binding.enterButton
 
         enterButton.setOnClickListener {

@@ -26,7 +26,7 @@ class RoomItemListAdapter(private val context: Context,
         val item  = getItem(position) as Room
 
         val roomItems = viewModel.getRoomItems(item)
-        val subListAdapter = NestedEstimatorListAdapter(context, listOf())
+        val subListAdapter = NestedEstimatorItemListAdapter(context, listOf())
         roomItems.observe(lifecycleOwner, Observer {
             subListAdapter.updateDataSource(it)
         })
@@ -58,9 +58,10 @@ class RoomItemListAdapter(private val context: Context,
         notifyDataSetChanged()
     }
 
-    class NestedEstimatorListAdapter(context: Context,
+    class NestedEstimatorItemListAdapter(context: Context,
                                      private var items: List<EstimatorItem>):
-        EstimatorListAdapterAbstract(items) {
+        EstimatorItemListAdapterAbstract(items) {
+        //Implementation of EstimatorItemListAdapter as a sub-list for each room on the estimator main page.
 
         private val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
@@ -75,6 +76,7 @@ class RoomItemListAdapter(private val context: Context,
     }
 
     class RoomClickListener(val clickListener: (Room) -> Unit) {
+        //Custom click listener class that takes an room.
         fun onClick(room: Room) = clickListener(room)
     }
 }

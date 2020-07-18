@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import com.example.asbestos.database.EstimatorItem
 
-abstract class EstimatorListAdapterAbstract(private var dataSource: List<EstimatorItem>): BaseAdapter() {
+abstract class EstimatorItemListAdapterAbstract(private var dataSource: List<EstimatorItem>): BaseAdapter() {
 
     abstract override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View
 

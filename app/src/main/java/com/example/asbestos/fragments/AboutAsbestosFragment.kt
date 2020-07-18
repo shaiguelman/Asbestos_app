@@ -8,13 +8,16 @@ import androidx.fragment.app.Fragment
 import com.example.asbestos.databinding.FragmentAboutAsbestosBinding
 
 class AboutAsbestosFragment : Fragment() {
+
+    private lateinit var binding: FragmentAboutAsbestosBinding
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        val binding = FragmentAboutAsbestosBinding.inflate(inflater)
+        binding = FragmentAboutAsbestosBinding.inflate(inflater)
         return binding.root
     }
 }

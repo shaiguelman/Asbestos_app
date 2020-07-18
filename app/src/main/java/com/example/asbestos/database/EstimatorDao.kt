@@ -37,7 +37,10 @@ interface EstimatorDao {
     suspend fun getItemsAsync(id: Long): List<EstimatorItem>
 
     @Query("select count(id) from Room")
-    fun countRooms(): Long
+    fun countRoomsLiveData(): LiveData<Int>
+
+    @Query("select count(id) from Room")
+    fun countRooms(): Int
 
     @Query("delete from Item")
     fun clearItems()

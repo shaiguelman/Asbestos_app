@@ -17,6 +17,7 @@ import com.example.asbestos.databinding.FragmentResultBinding
 class ResultFragment : Fragment() {
 
     private val args: ResultFragmentArgs by navArgs()
+    private lateinit var binding: FragmentResultBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +26,7 @@ class ResultFragment : Fragment() {
         val minValue = args.minValue
         val maxValue = args.maxValue
 
-        val binding = FragmentResultBinding.inflate(inflater)
+        binding = FragmentResultBinding.inflate(inflater)
         val textView = binding.resultText
         val resultString = "Removing the asbestos will cost between $$minValue and $$maxValue dollars!"
         textView.text = resultString

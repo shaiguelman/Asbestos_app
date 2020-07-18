@@ -9,7 +9,7 @@
         tools:context="com.example.asbestos.MainActivity">
 
         <TextView
-            style="@style/MenuOptions"
+            style="@style/Titles"
             android:text="@string/menu_headline" />
 
         <Button
