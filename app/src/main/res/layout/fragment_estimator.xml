@@ -40,10 +40,10 @@
 
         <Button
             android:id="@+id/add_room_btn"
+            style="@style/AppButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/AppButton"
-            android:text="@string/add_room_items"/>
+            android:text="@string/add_room" />
 
         <GridView
             android:id="@+id/rooms_list"

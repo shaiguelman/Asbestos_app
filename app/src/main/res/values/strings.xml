@@ -18,7 +18,6 @@
     <string name="estimate_btn">Estimate</string>
     <string name="result_contact"><![CDATA[For a more accurate quote, contact JJ&S Asbestos Removal at 619–204–3524]]></string>
     <string name="add_room">Add room</string>
-    <string name="add_room_items">Add room items</string>
     <string name="go_back">Go Back</string>
     <string name="new_estimate">New Estimate</string>
     <string name="logo_description">Logo</string>
@@ -27,4 +26,5 @@
     <string name="main_menu">Main Menu</string>
     <string name="edit_room">Edit Room</string>
     <string name="choose_estimate_type">Choose Estimate Type</string>
+    <string name="finish_room">Finish room</string>
 </resources>

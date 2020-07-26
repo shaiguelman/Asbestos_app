@@ -12,7 +12,9 @@
         tools:layout="@layout/welcome_fragment">
         <action
             android:id="@+id/action_welcomeFragment_to_menuPage"
-            app:destination="@id/menuPage" />
+            app:destination="@id/menuPage"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
     </fragment>
     <fragment
         android:id="@+id/menuPage"
@@ -20,39 +22,63 @@
         android:label="MenuPage" >
         <action
             android:id="@+id/action_menuPage_to_aboutAsbestos"
-            app:destination="@id/aboutAsbestos" />
+            app:destination="@id/aboutAsbestos"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
         <action
             android:id="@+id/action_menuPage_to_contactUs"
-            app:destination="@id/contactUs" />
+            app:destination="@id/contactUs"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
         <action
             android:id="@+id/action_menuPage_to_chooseEstimatorFragment"
-            app:destination="@id/chooseEstimatorFragment" />
+            app:destination="@id/chooseEstimatorFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
     </fragment>
     <fragment
         android:id="@+id/aboutAsbestos"
         android:name="com.example.asbestos.fragments.AboutAsbestosFragment"
-        android:label="AboutAsbestos" />
+        android:label="AboutAsbestos" >
+        <action
+            android:id="@+id/action_aboutAsbestos_to_menuPage"
+            app:destination="@id/menuPage"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+    </fragment>
     <fragment
         android:id="@+id/contactUs"
         android:name="com.example.asbestos.fragments.ContactUsFragment"
-        android:label="ContactUs" />
+        android:label="ContactUs" >
+        <action
+            android:id="@+id/action_contactUs_to_menuPage"
+            app:destination="@id/menuPage"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+    </fragment>
     <fragment
         android:id="@+id/estimatorFragment"
         android:name="com.example.asbestos.fragments.EstimatorFragment"
         android:label="EstimatorFragment" >
         <action
             android:id="@+id/action_estimatorFragment_to_resultFragment"
-            app:destination="@id/resultFragment" />
+            app:destination="@id/resultFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
         <action
             android:id="@+id/action_estimatorFragment_to_roomFragment"
-            app:destination="@id/roomFragment" />
+            app:destination="@id/roomFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
         <argument
             android:name="new_estimate"
             app:argType="boolean"
             android:defaultValue="false" />
         <action
             android:id="@+id/action_estimatorFragment_to_menuPage"
-            app:destination="@id/menuPage" />
+            app:destination="@id/menuPage"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
@@ -69,7 +95,9 @@
             android:defaultValue="0" />
         <action
             android:id="@+id/action_resultFragment_to_estimatorFragment"
-            app:destination="@id/estimatorFragment" />
+            app:destination="@id/estimatorFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/roomFragment"
@@ -77,7 +105,9 @@
         android:label="RoomFragment" >
         <action
             android:id="@+id/action_roomFragment_to_estimatorFragment"
-            app:destination="@id/estimatorFragment" />
+            app:destination="@id/estimatorFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
         <argument
             android:name="roomId"
             app:argType="long" />
@@ -88,7 +118,9 @@
         android:label="ChooseEstimatorFragment" >
         <action
             android:id="@+id/action_chooseEstimatorFragment_to_estimatorFragment"
-            app:destination="@id/estimatorFragment" />
+            app:destination="@id/estimatorFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
         <action
             android:id="@+id/action_chooseEstimatorFragment_to_menuPage"
             app:destination="@id/menuPage" />
