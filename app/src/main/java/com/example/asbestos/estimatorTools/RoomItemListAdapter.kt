@@ -32,7 +32,7 @@ class RoomItemListAdapter(private val context: Context,
         })
 
         rowView.roomItemSublist.adapter = subListAdapter
-        rowView.estimatorRoomType.text = item.type
+        rowView.estimatorRoomName.text = item.name
 
         rowView.editRoomBtn.setOnClickListener {
             clickListener.onClick(item)

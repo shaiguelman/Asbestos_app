@@ -51,7 +51,7 @@ class EstimatorViewModel(
     private suspend fun insertRoom(roomId: Long, roomType: String) {
         withContext(Dispatchers.IO) {
             val room =
-                Room(roomId, roomType, roomType + dao.getCountRoomOfType(roomType) + 1)
+                Room(roomId, roomType, roomType + " " + (dao.getCountRoomOfType(roomType) + 1))
             dao.insertRoom(room)
         }
     }

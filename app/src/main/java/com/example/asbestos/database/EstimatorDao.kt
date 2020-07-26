@@ -27,7 +27,7 @@ interface EstimatorDao {
     @Query("select * from Room where id = :id")
     fun getRoom(id: Long): LiveData<Room>
 
-    @Query("select count(id) from Room where type = :type")
+    @Query("select count(*) from Room where type = :type")
     fun getCountRoomOfType(type: String): Int
 
     @Query("select * from ITEM where ROOM_ID = :id")

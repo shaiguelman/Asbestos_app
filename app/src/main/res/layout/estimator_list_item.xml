@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             style="@style/TextAppearance.AppCompat.Body1"
-            android:id="@+id/estimator_room_type"/>
+            android:id="@+id/estimator_room_name"/>
 
 
         <GridView
