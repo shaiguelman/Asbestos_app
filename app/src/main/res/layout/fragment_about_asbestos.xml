@@ -10,10 +10,19 @@
         <TextView
             style="@style/Titles"
             android:text="@string/about_asbestos"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/TextAppearance.AppCompat.Body1"
-            android:text="@string/about_asbestos_body"/>
+            android:id="@+id/about_asbestos_body"/>
+
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            style="@style/AppButton.Big"
+            android:id="@+id/go_back_btn"
+            android:text="@string/go_back"/>
+
     </LinearLayout>
 </layout>
