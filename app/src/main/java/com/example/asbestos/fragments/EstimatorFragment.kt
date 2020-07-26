@@ -103,10 +103,7 @@ class EstimatorFragment: Fragment() {
         viewModel.totPriceLiveData.observe(viewLifecycleOwner, Observer {
             if (it != null) {
                 viewModel.calcFinalPrice(it)
-                val action = EstimatorFragmentDirections.actionEstimatorFragmentToResultFragment()
-                action.minValue = viewModel.minValue
-                action.maxValue = viewModel.maxValue
-                findNavController().navigate(action)
+                navToResultFragment()
             }
         })
 
@@ -116,5 +113,13 @@ class EstimatorFragment: Fragment() {
         }
 
         return binding.root
+    }
+
+    private fun navToResultFragment() {
+        val action = EstimatorFragmentDirections.actionEstimatorFragmentToResultFragment()
+        action.minValue = viewModel.minValue
+        action.maxValue = viewModel.maxValue
+        findNavController().navigate(action)
+        viewModel.doneNavigating()
     }
 }
