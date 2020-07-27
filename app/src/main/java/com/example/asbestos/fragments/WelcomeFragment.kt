@@ -6,11 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.asbestos.databinding.WelcomeFragmentBinding
+import com.example.asbestos.databinding.FragmentWelcomePageBinding
 
 class WelcomeFragment: Fragment() {
 
-    private lateinit var binding: WelcomeFragmentBinding
+    private lateinit var binding: FragmentWelcomePageBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -18,7 +18,7 @@ class WelcomeFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = WelcomeFragmentBinding.inflate(inflater)
+        binding = FragmentWelcomePageBinding.inflate(inflater)
         val enterButton = binding.enterButton
 
         enterButton.setOnClickListener {
