@@ -22,14 +22,14 @@
             android:id="@+id/go_back_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/TextAppearance.AppCompat.Button"
+            style="@style/AppButton"
             android:text="@string/go_back"/>
 
         <Button
             android:id="@+id/new_estimate_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/TextAppearance.AppCompat.Button"
+            style="@style/AppButton"
             android:text="@string/new_estimate"/>
     </LinearLayout>
 

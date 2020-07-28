@@ -54,7 +54,9 @@ dependencies {
     testImplementation "junit:junit:$junit_version"
     testImplementation "androidx.test:core:$test_core_version"
 
-    androidTestImplementation "androidx.test.ext:junit:$ext_junit_version"
+    androidTestImplementation "androidx.test:runner:$android_test_version"
+    androidTestImplementation "androidx.test:rules:$test_rules_version"
+    androidTestImplementation "androidx.test.ext:junit:$android_test_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
 
     //Navigation dependencies
@@ -70,4 +72,5 @@ dependencies {
 
     // Test helpers
     testImplementation "androidx.room:room-testing:$room_version"
+    testImplementation "io.mockk:mockk:$mockk_version"
 }

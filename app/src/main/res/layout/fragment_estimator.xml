@@ -15,7 +15,7 @@
         tools:context="com.example.asbestos.MainActivity">
 
         <TextView
-            style="@style/TextAppearance.MaterialComponents.Headline4"
+            style="@style/Titles"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -45,12 +45,6 @@
             android:layout_height="wrap_content"
             android:text="@string/add_room" />
 
-        <GridView
-            android:id="@+id/rooms_list"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:numColumns="2"/>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -78,6 +72,14 @@
                 android:text="@string/main_menu"/>
 
         </LinearLayout>
+
+        <GridView
+            android:id="@+id/rooms_list"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:numColumns="2"/>
+
+
 
     </LinearLayout>
 </layout>

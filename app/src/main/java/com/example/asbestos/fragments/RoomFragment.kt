@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.asbestos.R
@@ -21,7 +21,10 @@ import com.example.asbestos.viewModels.RoomViewModelFactory
 class RoomFragment: Fragment() {
 
     private val args: RoomFragmentArgs by navArgs()
+
+
     private lateinit var viewModel: RoomViewModel
+
     private lateinit var binding: FragmentRoomBinding
 
     override fun onCreateView(
@@ -30,19 +33,14 @@ class RoomFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val dataSource = EstimatorDatabase.getInstance(context!!).dao()
+        val dao = EstimatorDatabase.getInstance(requireContext()).dao()
+        val roomId = args.roomId
+        val vm: RoomViewModel by viewModels { RoomViewModelFactory(dao, roomId) }
+        viewModel = vm
 
         val materialTypeStrings = EstimatorItem.materialTypes
 
-        val roomId = args.roomId
-
-        val viewModelFactory = RoomViewModelFactory(dataSource, roomId)
-
-        viewModel = ViewModelProviders.of(
-            this, viewModelFactory
-        ).get(RoomViewModel::class.java)
-
-        val binding = FragmentRoomBinding.inflate(inflater)
+        binding = FragmentRoomBinding.inflate(inflater)
         binding.viewModel = viewModel
 
         viewModel.room.observe(viewLifecycleOwner, Observer {
@@ -52,13 +50,13 @@ class RoomFragment: Fragment() {
 
         val spinner = binding.chooseButtonSpinner
         spinner.adapter = ArrayAdapter<String>(
-            activity!!, R.layout.support_simple_spinner_dropdown_item, materialTypeStrings
+            requireActivity(), R.layout.support_simple_spinner_dropdown_item, materialTypeStrings
         )
 
         binding.lifecycleOwner = this
 
         var items = viewModel.items.value ?: mutableListOf()
-        val listAdapter = EstimatorItemListAdapter(context!!,
+        val listAdapter = EstimatorItemListAdapter(requireContext(),
             items,
             EstimatorItemListAdapter.EstimatorClickListener { item ->
                 viewModel.removeItem(item)

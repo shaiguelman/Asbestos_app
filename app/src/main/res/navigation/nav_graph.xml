@@ -9,7 +9,7 @@
         android:id="@+id/welcomeFragment"
         android:name="layout.WelcomeFragment"
         android:label="welcomeFragment"
-        tools:layout="@layout/welcome_fragment">
+        tools:layout="@layout/fragment_welcome_page">
         <action
             android:id="@+id/action_welcomeFragment_to_menuPage"
             app:destination="@id/menuPage"

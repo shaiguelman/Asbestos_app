@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import com.example.asbestos.database.EstimatorDao
 import com.example.asbestos.database.EstimatorItem
 import com.example.asbestos.database.Room
-import com.example.asbestos.database.RoomType
 import kotlinx.coroutines.*
 import kotlin.math.ceil
 import kotlin.math.roundToInt
@@ -96,7 +95,7 @@ class EstimatorViewModel(
     fun calcFinalPrice(tot: Int) {
         val roomCount = rooms.value!!.size
 
-        totPrice = ((1 + .1 * roomCount + VARIABLE_COSTS) * tot
+        totPrice = ((1 + VARIABLE_COSTS) * tot
                 + (COST_OF_AIR_SCRUBBER
                 * ceil(roomCount / ROOMS_PER_AIR_SCRUBBER)).roundToInt()
                 + DISPOSAL).roundToInt()
@@ -114,9 +113,7 @@ class EstimatorViewModel(
         get() = (totPrice * (1 + ERROR_COEF)).toInt()
 
     //The possible room types
-    val roomTypes = RoomType.values().map {
-        it.name
-    }
+    val roomTypes = listOf("Bedroom", "Bathroom", "Kitchen", "Hallway", "Garage", "Attic/Basement", "Shared Space")
 
     private fun itemPrice(item: EstimatorItem): Double {
         val price: Double = when (item.itemType) {
@@ -127,7 +124,7 @@ class EstimatorViewModel(
 
             "Insulation" -> .26
 
-            "Popcorn Ceiling" -> 7.0
+            "Popcorn Ceiling" -> 4.0
 
             else -> throw Exception("Invalid item type")
         }

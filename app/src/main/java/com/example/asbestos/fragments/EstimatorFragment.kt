@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.asbestos.R
@@ -21,7 +21,9 @@ import com.example.asbestos.viewModels.EstimatorViewModelFactory
 class EstimatorFragment: Fragment() {
 
     private val args: EstimatorFragmentArgs by navArgs()
-    private lateinit var viewModel: EstimatorViewModel
+
+    lateinit var viewModel: EstimatorViewModel
+
     private lateinit var binding: FragmentEstimatorBinding
 
     override fun onCreateView(
@@ -30,13 +32,11 @@ class EstimatorFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val dao = EstimatorDatabase.getInstance(context!!).dao()
-        binding = FragmentEstimatorBinding.inflate(inflater)
+        val dao = EstimatorDatabase.getInstance(requireContext()).dao()
+        val vm: EstimatorViewModel by activityViewModels{ EstimatorViewModelFactory(dao) }
+        viewModel = vm
 
-        val viewModelFactory = EstimatorViewModelFactory(dao)
-        viewModel = ViewModelProviders.of(
-            activity!!, viewModelFactory
-        ).get(EstimatorViewModel::class.java)
+        binding = FragmentEstimatorBinding.inflate(inflater)
 
         binding.viewModel = viewModel
 
@@ -49,7 +49,7 @@ class EstimatorFragment: Fragment() {
         val spinner = binding.chooseRoomSpinner
 
         spinner.adapter = ArrayAdapter<String>(
-            activity!!, R.layout.support_simple_spinner_dropdown_item, viewModel.roomTypes
+            requireActivity(), R.layout.support_simple_spinner_dropdown_item, viewModel.roomTypes
         )
 
         /*viewModel.area.observe(this as LifecycleOwner, Observer {
@@ -65,7 +65,7 @@ class EstimatorFragment: Fragment() {
             )
         }
 
-        val listAdapter = RoomItemListAdapter(this.context!!,
+        val listAdapter = RoomItemListAdapter(requireContext(),
             viewModel.rooms.value,
             viewModel,
             viewLifecycleOwner,

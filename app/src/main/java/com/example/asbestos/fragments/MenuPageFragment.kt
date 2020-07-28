@@ -27,7 +27,7 @@ class MenuPageFragment : Fragment() {
         return binding.root
     }
 
-    val onClickListener = View.OnClickListener {
+    private val onClickListener = View.OnClickListener {
         val navigation = when(it.id) {
             about_btn.id -> MenuPageFragmentDirections.actionMenuPageToAboutAsbestos()
 

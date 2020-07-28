@@ -8,11 +8,3 @@ data class Room(
     @PrimaryKey val id: Long,
     var type: String,
     var name: String)
-
-enum class RoomType() {
-    KITCHEN,
-    BATHROOM,
-    BEDROOM,
-    HALLWAY
-}
-
